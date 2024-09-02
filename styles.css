@@ -1,0 +1,1023 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #212121;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.notepad-title-top {
+    color: #f5f5f5;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.notepad-container {
+    background-color: #212121;
+    box-shadow: 4px 4px 8px #000, -4px -4px 8px #3c3c3c;
+    width: 100%;
+    max-width: 1200px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.notepad-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.notepad-title {
+    color: #f5f5f5;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #1c1c1c;
+    box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #3c3c3c;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    resize: none;
+    width: 50%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.notepad-title:focus {
+    outline: none;
+    border: 2px solid #303030;
+}
+
+.symbol-container {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.symbol-toggle {
+    display: none;
+}
+
+.symbol-toggleee {
+    font-size: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    outline: none;
+}
+
+.symbol-toggleee::before {
+    content: var(--symbol);
+}
+
+.symbol-toggle:checked + .symbol-toggleee::before {
+    content: var(--symbol-checked);
+}
+
+.symbol-toggleee:hover {
+    color: #aaa;
+}
+
+.delete-btn,
+.delete-btn-tab {
+    font-size: 30px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px; 
+    outline: none;
+}
+
+.delete-btn-tab::before {
+    content: 'delete';
+}
+
+.delete-btn::before {
+    content: 'delete';
+}
+
+.cleaning-btn {
+    font-size: 40px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px; 
+    outline: none;
+}
+
+.cleaning-btn::before {
+    content: 'delete_sweep'; 
+}
+
+.add {
+    font-size: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0px 0px 15px;
+    outline: none;
+}
+
+.delete,
+.delete-tab {
+    font-size: 20px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px; 
+    outline: none;
+}
+
+.add_circle {
+    font-size: 40px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0px 0px 15px;
+    outline: none;
+}
+
+.zoom-btn {
+    font-size: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    outline: none;
+}
+
+.zoom-btn::before {
+    content: 'fullscreen';
+}
+
+.add::before {
+    content: 'add';
+}
+
+.delete-tab::before,
+.delete::before {
+    content: 'delete';
+}
+
+.add_circle::before {
+    content: 'add_circle';
+}
+
+.delete-tab:hover,
+.delete:hover,
+.delete-btn-tab:hover,
+.add-tab-btn:hover,
+.zoom-btn:hover,
+.add_circle:hover,
+.delete-btn:hover,
+.cleaning-btn:hover,
+.add:hover {
+    color: #aaa;
+}
+
+.notepad-textarea {
+    flex-grow: 1;
+    background-color: #1c1c1c;
+    box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #3c3c3c;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    color: #e0e0e0;
+    font-size: 18px;
+    line-height: 1.6;
+    resize: none;
+    box-shadow: inset 4px 4px 8px #000, inset -4px -4px 8px #3c3c3c;
+    box-sizing: border-box;
+    overflow-y: auto;
+    scrollbar-width: 120px;
+    scrollbar-color: #4a4a4a #1c1c1c;
+}
+
+.notepad-textarea::-webkit-scrollbar-track {
+    background: #1c1c1c;
+}
+
+.notepad-textarea::-webkit-scrollbar-thumb {
+    background-color: #4a4a4a;
+    border-radius: 10px;
+    border: 3px solid #1c1c1c;
+}
+
+.notepad-textarea:focus {
+    outline: none;
+    border: 2px solid #3c3c3c;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #212121;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.lightbox-content {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.lightbox-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.lightbox-textarea {
+    width: 100%;
+    height: 85%;
+    flex-grow: 1;
+    background-color: #1c1c1c;
+    box-shadow: inset 4px 4px 8px #000, inset -4px -4px 8px #3c3c3c;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    color: #e0e0e0;
+    font-size: 18px;
+    line-height: 1.6;
+    resize: none;
+    box-sizing: border-box;
+    overflow-y: auto;
+    scrollbar-width: 120px;
+    scrollbar-color: #4a4a4a #1c1c1c;
+}
+
+.lightbox-textarea:focus {
+    outline: none;
+    border: 2px solid #3c3c3c;
+}
+
+.lightbox-textarea::-webkit-scrollbar {
+    width: 12px;
+}
+
+.lightbox-textarea::-webkit-scrollbar-track {
+    background: #1c1c1c;
+}
+
+.lightbox-textarea::-webkit-scrollbar-thumb {
+    background-color: #4a4a4a;
+    border-radius: 10px;
+    border: 3px solid #1c1c1c;
+}
+
+.lightbox-notepad-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 40px;
+    color: #f5f5f5;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #1c1c1c;
+    box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #3c3c3c;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    resize: none;
+    text-align: center;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+
+.lightbox-notepad-title:focus {
+    outline: none;
+    border: 2px solid #3c3c3c;
+}
+
+.reset-btn {
+    font-size: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    outline: none;
+}
+
+.reset-btn::before {
+    content: 'fullscreen_exit';
+}
+
+.reset-btn:hover {
+    color: #aaa;
+}
+
+.lightbox-symbol-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.confirmation-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #202020;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    z-index: 10;
+}
+
+.confirmation-dialog p {
+    margin: 0 0 10px;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.confirmation-dialog button {
+    background-color: #282828;
+    border: 1px solid #555;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.confirmation-dialog button:hover {
+    background-color: #383838;
+    border-color: #666;
+}
+
+.cancel-delete-btn {
+    background-color: #d32f2f;
+    border-color: #b71c1c;
+}
+
+.cancel-delete-btn:hover {
+    background-color: #b71c1c;
+    border-color: #b71c1c;
+}
+
+.cleaning-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+}
+
+.cleaning-dialog-box {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    z-index: 1200;
+}
+
+.cleaning-dialog-box button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.confirm-cleaning-btn {
+    background-color: #ff4d4d;
+    color: #ffffff;
+}
+
+.cancel-cleaning-btn {
+    background-color: #444;
+    color: #ffffff;
+}
+
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialog-box {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.dialog-box button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dialog-box .confirm-btn {
+    background-color: #ff4d4d;
+    color: #ffffff;
+}
+
+.dialog-box .cancel-btn {
+    background-color: #444;
+    color: #ffffff;
+}
+
+.top-bar {
+    width: 100%;
+    background-color: #1c1c1c;
+    box-shadow: 4px 4px 8px #000, -4px -4px 8px #3c3c3c;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.top-bar-content {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0 60px;
+    height: 50px;
+}
+
+.tab-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    box-shadow: inset 2px 2px 4px #000, inset -2px -2px 4px #3c3c3c;
+    overflow: hidden;
+    height: auto;
+    min-height: 40px;
+    max-height: none;
+    width: calc(100% - 40px);
+    transition: height 0.3s ease;
+    resize: vertical;
+    align-content: flex-start;
+    position: relative;
+    margin: 0 10px;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    box-shadow: 1.5px 1.5px 2px #000, -1.5px -1.5px 2px #3c3c3c;
+    padding: 5px 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    flex: 0 1 auto;
+}
+
+.tab.selected {
+    background-color: #1c1c1c;
+    box-shadow: inset 1.5px 1.5px 2px #000, inset -1.5px -1.5px 2px #3c3c3c;
+    color: #ffffff;
+}
+
+.tab:hover {
+    background-color: #1c1c1c;
+    box-shadow: inset 1.5px 1.5px 2px #000, inset -1.5px -1.5px 2px #3c3c3c;
+    color: #ffffff;
+}
+
+.add-tab {
+    font-size: 40px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    cursor: pointer;
+    outline: none;
+    padding: 5px 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    height: 30px;
+    flex: 0 1 auto;
+    position: absolute; 
+    right: -5px;
+    top: 10px;
+}
+
+.tab input {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    width: calc(100% - 30px);
+    min-width: 100px;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.add-tab-btn {
+    font-size: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    outline: none;
+}
+
+.add-tab-btn::before {
+    content: 'add';
+}
+
+.material-icons {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.tab-content {
+    padding: 20px;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.tab input.editing {
+    border: 2px solid #f5f5f5;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.copy-btn {
+    font-size: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    outline: none;
+}
+
+.copy-btn::before {
+    content: 'content_copy';
+}
+
+.copy-btn:hover {
+    color: #aaa;
+}
+
+.copy-alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #323232;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    z-index: 10000;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.theme-switcher {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.theme-switcher button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #212121;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 4px 4px 8px #000, -4px -4px 8px #3c3c3c;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-switcher button:hover {
+    box-shadow: 2px 2px 3px #000, -2px -2px 3px #3c3c3c;
+}
+
+.theme-switcher button:active {
+    background-color: #303030;
+    box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #3c3c3c;
+}
+
+/* Light Mode Styles */
+.light-mode {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.light-mode .notepad-title-top {
+    color: #000;
+}
+
+.light-mode .container {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.light-mode .notepad-container {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2), -6px -6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .notepad-header {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.light-mode .notepad-title {
+    background-color: #e0e0e0;
+    color: #000;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .notepad-title:focus {
+    outline: none;
+    border: 2px solid #989898;
+}
+
+.light-mode .symbol-container {
+    background-color: #f5f5f5;
+}
+
+.light-mode .symbol-toggleee,
+.light-mode .delete-btn,
+.light-mode .delete-btn-tab,
+.light-mode .cleaning-btn,
+.light-mode .add,
+.light-mode .delete,
+.light-mode .delete-tab,
+.light-mode .add_circle,
+.light-mode .zoom-btn,
+.light-mode .reset-btn,
+.light-mode .copy-btn,
+.light-mode .material-icons {
+    color: #000;
+}
+
+.light-mode .symbol-toggleee:hover,
+.light-mode .delete-tab:hover,
+.light-mode .delete:hover,
+.light-mode .delete-btn-tab:hover,
+.light-mode .add-tab-btn:hover,
+.light-mode .zoom-btn:hover,
+.light-mode .add_circle:hover,
+.light-mode .delete-btn:hover,
+.light-mode .cleaning-btn:hover,
+.light-mode .add:hover,
+.light-mode .copy-btn:hover {
+    color: #555;
+}
+
+light-mode .notepad-textarea {
+    background-color: #e0e0e0;
+    color: #000;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .notepad-textarea::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+.light-mode .notepad-textarea::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border: 3px solid #e0e0e0;
+}
+
+.light-mode .notepad-textarea:focus {
+    outline: none;
+    border: 2px solid #989898;
+}
+
+.light-mode .lightbox {
+    background-color: #f5f5f5;
+}
+
+.light-mode .lightbox-content {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.light-mode .lightbox-header {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+.light-mode .lightbox-textarea {
+    background-color: #e0e0e0;
+    color: #000;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .lightbox-textarea::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+.light-mode .lightbox-textarea::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border: 3px solid #e0e0e0;
+}
+
+.light-mode .lightbox-textarea:focus {
+    outline: none;
+    border: 2px solid #989898;
+}
+
+.light-mode .lightbox-notepad-title {
+    background-color: #e0e0e0;
+    color: #000;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .lightbox-notepad-title:focus {
+    outline: none;
+    border: 2px solid #989898;
+}
+
+.light-mode .reset-btn:hover {
+    color: #555;
+}
+
+.light-mode .confirmation-dialog {
+    background-color: #f5f5f5;
+    color: #000;
+    border: 1px solid #aaa;
+}
+
+.light-mode .confirmation-dialog p {
+    color: #000;
+}
+
+.light-mode .confirmation-dialog button {
+    background-color: #ddd;
+    color: #000;
+    border: 1px solid #999;
+}
+
+.light-mode .confirmation-dialog button:hover {
+    background-color: #ccc;
+    border-color: #888;
+}
+
+.light-mode .cancel-delete-btn {
+    background-color: #f44336;
+    border-color: #d32f2f;
+}
+
+.light-mode .cancel-delete-btn:hover {
+    background-color: #d32f2f;
+    border-color: #c62828;
+}
+
+.light-mode .cleaning-dialog-overlay {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.light-mode .cleaning-dialog-box {
+    background-color: #f5f5f5;
+    color: #000;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .cleaning-dialog-box button {
+    background-color: #ddd;
+    color: #000;
+}
+
+.light-mode .confirm-cleaning-btn {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.light-mode .cancel-cleaning-btn {
+    background-color: #bbb;
+    color: #000;
+}
+
+.light-mode .dialog-overlay {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.light-mode .dialog-box {
+    background-color: #f5f5f5;
+    color: #000;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .dialog-box button {
+    background-color: #ddd;
+    color: #000;
+}
+
+.light-mode .dialog-box .confirm-btn {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.light-mode .dialog-box .cancel-btn {
+    background-color: #bbb;
+    color: #000;
+}
+
+.light-mode .top-bar {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2), -6px -6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .top-bar-content {
+    background-color: #fff;
+    color: #000;
+}
+
+.light-mode .tab-container {
+    background-color: #e0e0e0;
+    color: #000;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .tab {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2), -6px -6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .tab.selected {
+    background-color: #e0e0e0;
+    color: #000;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .tab:hover {
+    background-color: #e0e0e0;
+    color: #000;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .tab input {
+    color: #000;
+}
+
+.light-mode .tab input.editing {
+    border: 2px solid #999;
+    color: #000;
+}
+
+.light-mode .add-tab {
+    color: #000;
+}
+
+.light-mode .add-tab-btn {
+    color: #000;
+}
+
+.light-mode .tab-content {
+    background-color: #fff;
+    border: 1px solid #aaa;
+    color: #000;
+}
+
+.light-mode .copy-alert {
+    background-color: #ddd;
+    color: #000;
+}
+
+.light-mode .theme-switcher button {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .theme-switcher button:active {
+    background-color: #e0e0e0;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}

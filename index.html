@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Modern Notepad with Voice, Writing Assistance, and Zoom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Logo_Principal/PV_Logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Nuevo diálogo de confirmación para el botón "cleaning" -->
+    <div id="cleaningDialog" class="cleaning-dialog-overlay" style="display: none;">
+        <div class="cleaning-dialog-box">
+            <p>¿Estás seguro de que deseas limpiar todo el almacenamiento?</p>
+            <button class="confirm-cleaning-btn" onclick="confirmCleaning()">Limpiar</button>
+            <button class="cancel-cleaning-btn" onclick="cancelCleaning()">Cancelar</button>
+        </div>
+    </div>
+
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <button class="add_circle" onclick="addPanel()"></button>
+            <h1 class="notepad-title-top">PV Notepad</h1>
+            <button class="cleaning-btn" onclick="showClearStorageConfirmation()"></button>
+            <div class="theme-switcher">
+                <button id="theme-toggle">
+                  <span class="material-icons" id="icon"></span>
+                </button>
+            </div>
+        </div>
+        <div id="tabContainer" class="tab-container">
+            <div class="add-tab">
+                <button class="add-tab-btn"></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="copyAlert" class="copy-alert" style="display: none;">Texto copiado</div>
+
+
+    <!-- Confirmation Dialog -->
+    <div id="dialog" class="dialog-overlay" style="display: none;">
+        <div class="dialog-box">
+            <p>¿Estás seguro de que deseas eliminar esta pestaña?</p>
+            <button class="confirm-btn" onclick="deleteConfirmed()">Eliminar</button>
+            <button class="cancel-btn" onclick="cancelDelete()">Cancelar</button>
+        </div>
+    </div>
+
+    <div class="container" id="notepadContainer">
+        <!-- Los paneles de notas se agregarán aquí -->
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <div class="lightbox-header">
+                <textarea class="lightbox-notepad-title"></textarea>
+                <input type="checkbox" id="lightbox-symbol-toggle1" class="symbol-toggle micToggle" />
+                <label for="lightbox-symbol-toggle1" class="symbol-toggleee" style="--symbol: 'mic'; --symbol-checked: 'mic_off';"></label>
+    
+                <input type="checkbox" id="lightbox-symbol-toggle2" class="symbol-toggle voiceToggle" />
+                <label for="lightbox-symbol-toggle2" class="symbol-toggleee" style="--symbol: 'play_arrow'; --symbol-checked: 'pause';"></label>
+    
+                <button class="copy-btn" onclick="copyLightboxText()"></button>
+                <button class="reset-btn" onclick="closeLightbox()"></button>
+            </div>
+            <textarea id="lightbox-textarea" class="lightbox-textarea"></textarea>
+        </div>
+    </div>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Tabs with Unique Content</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #333;
+            padding: 10px;
+            background-color: #1e1e1e;
+        }
+
+        .tab {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            border: 1px solid #444;
+            padding: 5px 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tab input {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+            width: calc(100% - 30px); /* Dynamically adjust width */
+            min-width: 100px;
+            max-width: 200px;
+        }
+
+        .tab .delete-btn {
+            margin-left: 10px;
+            color: #ffffff; /* Set the delete icon color to white */
+            cursor: pointer;
+        }
+
+        .add-tab {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            border: 1px solid #444;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .material-icons {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .tab-content {
+            padding: 20px;
+            background-color: #1e1e1e;
+            border: 1px solid #444;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Confirmation Dialog Styles */
+        .dialog-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .dialog-box {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .dialog-box button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .dialog-box .confirm-btn {
+            background-color: #ff4d4d;
+            color: #ffffff;
+        }
+
+        .dialog-box .cancel-btn {
+            background-color: #444;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tab-container">
+        <div class="tab" data-tab-index="1" onclick="showTabContent(this)">
+            <input type="text" value="Nueva pestaña" readonly ondblclick="enableEdit(this)">
+            <span class="material-icons delete-btn" onclick="confirmDelete(this)">delete</span>
+        </div>
+        <div class="add-tab" onclick="addTab()">
+            <span class="material-icons">add</span>
+        </div>
+    </div>
+
+    <div id="content-display" class="tab-content">
+        <!-- Default content for the first tab -->
+        <p>Contenido de la pestaña 1: Información predeterminada.</p>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div id="dialog" class="dialog-overlay" style="display: none;">
+        <div class="dialog-box">
+            <p>¿Estás seguro de que deseas eliminar esta pestaña?</p>
+            <button class="confirm-btn" onclick="deleteConfirmed()">Eliminar</button>
+            <button class="cancel-btn" onclick="cancelDelete()">Cancelar</button>
+        </div>
+    </div>
+
+    <script>
+        let currentEditingTab = null;
+        let tabCounter = 1;
+
+        function enableEdit(input) {
+            if (currentEditingTab && currentEditingTab !== input) {
+                disableEdit(currentEditingTab);
+            }
+            input.readOnly = false;
+            input.style.width = 'auto'; /* Auto-expand the input width */
+            input.style.maxWidth = 'none'; /* Remove max-width restriction */
+            input.focus();
+            input.select(); /* Automatically select the entire text */
+            currentEditingTab = input;
+        }
+
+        function disableEdit(input) {
+            input.readOnly = true;
+            input.style.width = ''; /* Reset the width */
+            currentEditingTab = null;
+        }
+
+        function addTab() {
+            tabCounter++;
+            const tabContainer = document.querySelector('.tab-container');
+            const newTab = document.createElement('div');
+            newTab.classList.add('tab');
+            newTab.setAttribute('data-tab-index', tabCounter);
+            newTab.setAttribute('onclick', 'showTabContent(this)');
+            newTab.innerHTML = `
+                <input type="text" value="Nueva pestaña" readonly ondblclick="enableEdit(this)">
+                <span class="material-icons delete-btn" onclick="confirmDelete(this)">delete</span>
+            `;
+            tabContainer.insertBefore(newTab, tabContainer.querySelector('.add-tab'));
+        }
+
+        function showTabContent(tab) {
+            const tabIndex = tab.getAttribute('data-tab-index');
+            const contentDisplay = document.getElementById('content-display');
+            contentDisplay.innerHTML = `<p>Contenido de la pestaña ${tabIndex}: Información predeterminada para la pestaña ${tabIndex}.</p>`;
+        }
+
+        let tabToDelete = null;
+
+        function confirmDelete(element) {
+            tabToDelete = element.parentElement;
+            document.getElementById('dialog').style.display = 'flex';
+        }
+
+        function deleteConfirmed() {
+            if (tabToDelete) {
+                tabToDelete.remove();
+            }
+            document.getElementById('dialog').style.display = 'none';
+        }
+
+        function cancelDelete() {
+            tabToDelete = null;
+            document.getElementById('dialog').style.display = 'none';
+        }
+
+        document.addEventListener('click', function (event) {
+            if (currentEditingTab && !currentEditingTab.contains(event.target)) {
+                disableEdit(currentEditingTab);
+            }
+        });
+
+        document.querySelector('.tab-container').addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+    </script>
+
+</body>
+</html>
