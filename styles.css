@@ -9,6 +9,178 @@ body {
     box-sizing: border-box;
 }
 
+
+.top-bar {
+    width: 100%;
+    background-color: #1c1c1c;
+    box-shadow: 4px 4px 8px #000, -4px -4px 8px #3c3c3c;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 0px 10px 10px;
+}
+
+/* Contenedor principal */
+.top-bar-content {
+    width: 100%;
+    height: 50px;
+    background-color: #1c1c1c;
+    display: flex;
+    align-items: center; /* Alinea los elementos verticalmente */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos de los extremos */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+    
+}
+
+
+.tab-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    box-shadow: inset 2px 2px 4px #000, inset -2px -2px 4px #3c3c3c;
+    overflow: hidden;
+    height: auto;
+    min-height: 40px;
+    max-height: none;
+    width: calc(100% - 40px);
+    transition: height 0.3s ease;
+    resize: vertical;
+    align-content: flex-start;
+    position: relative;
+    margin: 0 10px;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    box-shadow: 1.5px 1.5px 2px #000, -1.5px -1.5px 2px #3c3c3c;
+    padding: 5px 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    flex: 0 1 auto;
+}
+
+.tab.selected {
+    background-color: #1c1c1c;
+    box-shadow: inset 1.5px 1.5px 2px #000, inset -1.5px -1.5px 2px #3c3c3c;
+    color: #ffffff;
+}
+
+.tab:hover {
+    background-color: #1c1c1c;
+    box-shadow: inset 1.5px 1.5px 2px #000, inset -1.5px -1.5px 2px #3c3c3c;
+    color: #ffffff;
+}
+
+.title-top {
+    flex-grow: 1; /* Permite que el título ocupe el espacio central */
+    text-align: center; /* Centra el título dentro de su contenedor */
+    margin: 0; /* Elimina los márgenes por defecto */
+    color: #f5f5f5;
+}
+
+/* Boton de agregar */
+
+.add_circle {
+    font-size: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    outline: none;
+}
+/* Boton de limpeza */
+.cleaning-btn {
+    font-size: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #f5f5f5;
+    font-family: 'Material Symbols Outlined';
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    outline: none;
+}
+
+.cleaning-btn::before {
+    content: 'delete_sweep'; 
+} 
+
+/* switcher de tema */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; /* Espacio entre el botón de limpieza y el switcher */
+    position: relative;
+}
+
+.theme-switcher button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #212121;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 4px 4px 8px #000, -4px -4px 8px #3c3c3c;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-switcher button:hover {
+    box-shadow: 2px 2px 3px #000, -2px -2px 3px #3c3c3c;
+}
+
+.theme-switcher button:active {
+    background-color: #303030;
+    box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #3c3c3c;
+}
+
+.tab input {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    width: calc(100% - 30px);
+    min-width: 100px;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-content {
+    padding: 20px;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.tab input.editing {
+    border: 2px solid #f5f5f5;
+    border-radius: 5px;
+    padding: 4px;
+}
+
 .notepad-title-top {
     color: #f5f5f5;
     font-size: 24px;
@@ -69,6 +241,39 @@ body {
 .notepad-title:focus {
     outline: none;
     border: 2px solid #303030;
+}
+
+.notepad-textarea {
+    flex-grow: 1;
+    background-color: #1c1c1c;
+    box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #3c3c3c;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    color: #e0e0e0;
+    font-size: 18px;
+    line-height: 1.6;
+    resize: none;
+    box-shadow: inset 4px 4px 8px #000, inset -4px -4px 8px #3c3c3c;
+    box-sizing: border-box;
+    overflow-y: auto;
+    scrollbar-width: 120px;
+    scrollbar-color: #4a4a4a #1c1c1c;
+}
+
+.notepad-textarea::-webkit-scrollbar-track {
+    background: #1c1c1c;
+}
+
+.notepad-textarea::-webkit-scrollbar-thumb {
+    background-color: #4a4a4a;
+    border-radius: 10px;
+    border: 3px solid #1c1c1c;
+}
+
+.notepad-textarea:focus {
+    outline: none;
+    border: 2px solid #3c3c3c;
 }
 
 .symbol-container {
@@ -178,18 +383,23 @@ body {
     outline: none;
 }
 
-.add_circle {
+.add-tab {
     font-size: 40px; 
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: #f5f5f5;
     font-family: 'Material Symbols Outlined';
-    background: none;
-    border: none;
     cursor: pointer;
-    padding: 0px 0px 15px;
     outline: none;
+    padding: 5px 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    height: 30px;
+    flex: 0 1 auto;
+    position: absolute; 
+    right: -5px;
+    top: 10px;
 }
 
 .zoom-btn {
@@ -235,38 +445,20 @@ body {
     color: #aaa;
 }
 
-.notepad-textarea {
-    flex-grow: 1;
-    background-color: #1c1c1c;
-    box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #3c3c3c;
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    color: #e0e0e0;
-    font-size: 18px;
-    line-height: 1.6;
-    resize: none;
-    box-shadow: inset 4px 4px 8px #000, inset -4px -4px 8px #3c3c3c;
-    box-sizing: border-box;
-    overflow-y: auto;
-    scrollbar-width: 120px;
-    scrollbar-color: #4a4a4a #1c1c1c;
-}
 
-.notepad-textarea::-webkit-scrollbar-track {
-    background: #1c1c1c;
-}
 
-.notepad-textarea::-webkit-scrollbar-thumb {
-    background-color: #4a4a4a;
-    border-radius: 10px;
-    border: 3px solid #1c1c1c;
-}
 
-.notepad-textarea:focus {
-    outline: none;
-    border: 2px solid #3c3c3c;
-}
+
+
+
+
+
+
+
+
+
+
+
 
 .lightbox {
     display: none;
@@ -276,30 +468,40 @@ body {
     width: 100%;
     height: 100%;
     background-color: #212121;
-    z-index: 9999;
+    z-index: 1000;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    
+}
+
+.lightbox-symbol-container {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 10px;
 }
 
 .lightbox-content {
     width: 100%;
     height: 100%;
-    padding: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    box-sizing: border-box;
+    justify-content: space-between;
+    position: relative;
 }
 
 .lightbox-header {
-    width: 100%;
+    background-color: #212121;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
+    position: relative;
     margin-bottom: 10px;
+    padding: 10px 10px 0px;
 }
 
 .lightbox-textarea {
@@ -341,11 +543,6 @@ body {
 }
 
 .lightbox-notepad-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 40px;
     color: #f5f5f5;
     font-size: 24px;
     font-weight: bold;
@@ -353,17 +550,49 @@ body {
     box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #3c3c3c;
     border: none;
     border-radius: 8px;
-    padding: 5px;
+    padding: 10px;
     resize: none;
+    width: 50%;
     text-align: center;
     box-sizing: border-box;
-    overflow-y: hidden;
 }
-
 .lightbox-notepad-title:focus {
     outline: none;
     border: 2px solid #3c3c3c;
 }
+
+
+
+.lightbox-symbol-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .reset-btn {
     font-size: 30px;
@@ -385,13 +614,6 @@ body {
 
 .reset-btn:hover {
     color: #aaa;
-}
-
-.lightbox-symbol-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    align-items: center;
 }
 
 .confirmation-dialog {
@@ -440,38 +662,6 @@ body {
 .cancel-delete-btn:hover {
     background-color: #b71c1c;
     border-color: #b71c1c;
-}
-
-.cleaning-dialog-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1100;
-}
-
-.cleaning-dialog-box {
-    background-color: #2a2a2a;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    color: #ffffff;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    z-index: 1200;
-}
-
-.cleaning-dialog-box button {
-    margin: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
 }
 
 .confirm-cleaning-btn {
@@ -525,104 +715,6 @@ body {
     color: #ffffff;
 }
 
-.top-bar {
-    width: 100%;
-    background-color: #1c1c1c;
-    box-shadow: 4px 4px 8px #000, -4px -4px 8px #3c3c3c;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 10px 0;
-    box-sizing: border-box;
-}
-
-.top-bar-content {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px 0 60px;
-    height: 50px;
-}
-
-.tab-container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #1e1e1e;
-    box-shadow: inset 2px 2px 4px #000, inset -2px -2px 4px #3c3c3c;
-    overflow: hidden;
-    height: auto;
-    min-height: 40px;
-    max-height: none;
-    width: calc(100% - 40px);
-    transition: height 0.3s ease;
-    resize: vertical;
-    align-content: flex-start;
-    position: relative;
-    margin: 0 10px;
-}
-
-.tab {
-    display: flex;
-    align-items: center;
-    background-color: #333;
-    box-shadow: 1.5px 1.5px 2px #000, -1.5px -1.5px 2px #3c3c3c;
-    padding: 5px 5px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 30px;
-    flex: 0 1 auto;
-}
-
-.tab.selected {
-    background-color: #1c1c1c;
-    box-shadow: inset 1.5px 1.5px 2px #000, inset -1.5px -1.5px 2px #3c3c3c;
-    color: #ffffff;
-}
-
-.tab:hover {
-    background-color: #1c1c1c;
-    box-shadow: inset 1.5px 1.5px 2px #000, inset -1.5px -1.5px 2px #3c3c3c;
-    color: #ffffff;
-}
-
-.add-tab {
-    font-size: 40px; 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #f5f5f5;
-    font-family: 'Material Symbols Outlined';
-    cursor: pointer;
-    outline: none;
-    padding: 5px 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    height: 30px;
-    flex: 0 1 auto;
-    position: absolute; 
-    right: -5px;
-    top: 10px;
-}
-
-.tab input {
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    font-size: 16px;
-    outline: none;
-    cursor: pointer;
-    width: calc(100% - 30px);
-    min-width: 100px;
-    max-width: 180px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .add-tab-btn {
     font-size: 26px;
     display: inline-flex;
@@ -644,20 +736,6 @@ body {
 .material-icons {
     font-size: 18px;
     color: #ffffff;
-}
-
-.tab-content {
-    padding: 20px;
-    background-color: #1e1e1e;
-    border: 1px solid #444;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-.tab input.editing {
-    border: 2px solid #f5f5f5;
-    border-radius: 5px;
-    padding: 4px;
 }
 
 .copy-btn {
@@ -695,37 +773,6 @@ body {
     z-index: 10000;
     opacity: 0.9;
     transition: opacity 0.3s ease;
-}
-
-.theme-switcher {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.theme-switcher button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #212121;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    box-shadow: 4px 4px 8px #000, -4px -4px 8px #3c3c3c;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.theme-switcher button:hover {
-    box-shadow: 2px 2px 3px #000, -2px -2px 3px #3c3c3c;
-}
-
-.theme-switcher button:active {
-    background-color: #303030;
-    box-shadow: inset 2px 2px 5px #000, inset -2px -2px 5px #3c3c3c;
 }
 
 /* Light Mode Styles */
@@ -1020,4 +1067,198 @@ light-mode .notepad-textarea {
 .light-mode .theme-switcher button:active {
     background-color: #e0e0e0;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Para pantallas más pequeñas que 1200px, como tabletas en orientación horizontal */
+@media (max-width: 1200px) {
+    .notepad-container {
+        max-width: 90%;
+        height: 400px;
+    }
+    
+    .notepad-title {
+        width: 80%;
+    }
+
+    .top-bar-content {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .tab-container {
+        width: calc(100% - 20px);
+    }
+}
+
+/* Para pantallas más pequeñas que 768px y 480px */
+@media (max-width: 768px) {
+    .notepad-header {
+        display: flex;
+        flex-direction: column; /* Cambia la dirección de los elementos a vertical */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .notepad-title {
+        margin-bottom: 20px; /* Mayor espacio entre el título y los símbolos */
+        font-size: 20px; /* Ajuste del tamaño de la fuente para pantallas más pequeñas */
+        width: 90%; /* Ajuste del ancho para pantallas pequeñas */
+        text-align: center;
+    }
+
+    .symbol-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* Aumenta el espacio entre los botones */
+        margin-top: 20px; /* Aumenta el espacio entre el título y los botones */
+        width: auto; /* El contenedor de símbolos se ajusta al contenido */
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .symbol-toggleee {
+        font-size: 28px; /* Ajuste del tamaño de los botones en pantallas más pequeñas */
+    }
+}
+
+
+
+
+
+
+/* Para pantallas más pequeñas que 480px */
+@media (max-width: 480px) {
+
+
+    .top-bar {
+        width: 99%;
+    }
+    
+    /* Contenedor principal */
+    .top-bar-content {
+        width: 100%;
+        height: 50px;
+    }
+
+
+    .notepad-container {
+        max-width: 100%;
+        height: 700px;
+        padding: 10px;
+    }
+    .notepad-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .notepad-title {
+        margin-bottom: 30px; /* Mayor espacio entre el título y los botones */
+        font-size: 18px; /* Ajuste del tamaño de la fuente para pantallas pequeñas */
+        width: 90%;
+        text-align: center;    
+    }
+
+    .symbol-container {
+        display: flex;
+        justify-content: center; /* Centrar el contenedor de los símbolos */
+        gap: 10px; /* Espacio entre los símbolos */
+        top: 9px;
+        width: 100%; /* Asegurar que ocupe el ancho completo */
+        text-align: center; /* Centrar los elementos hijos dentro del contenedor de símbolos */
+        position: absolute;
+
+    }
+
+
+
+
+    .lightbox-content {
+        padding: 10px;
+    }
+    .lightbox-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .lightbox-notepad-title {
+        margin-bottom: 30px; /* Mayor espacio entre el título y los botones */
+        font-size: 18px; /* Ajuste del tamaño de la fuente para pantallas pequeñas */
+        width: 90%;
+        height: 40px;
+        text-align: center;    
+
+    }
+
+    .lightbox-symbol-container {
+        display: flex;
+        justify-content: center; /* Centrar el contenedor de los símbolos */
+        gap: 10px; /* Espacio entre los símbolos */
+        top: 46px;
+        width: 100%; /* Asegurar que ocupe el ancho completo */
+        text-align: center; /* Centrar los elementos hijos dentro del contenedor de símbolos */
+        position: absolute;
+
+    }
+
+
+
+
+
+
+    .symbol-toggleee,
+    .delete-btn,
+    .delete-btn-tab,
+    .add,
+    .delete,
+    .delete-tab,
+    .zoom-btn,
+    .reset-btn,
+    .copy-btn,
+    .material-icons {
+        font-size: 20px; /* Ajuste del tamaño de los botones en pantallas pequeñas */
+    }
+    /* contenido general */
+    .lightbox {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+    
+    /* contenido general */
+    .lightbox-content {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+    }
+
+
+    .theme-switcher button {
+        width: 40px;
+        height: 40px;
+    }
+
+
 }
