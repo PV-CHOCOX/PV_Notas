@@ -22,13 +22,15 @@
     <div class="top-bar">
         <div class="top-bar-content">
             <button class="add_circle" onclick="addPanel()"></button>
-            <h1 class="notepad-title-top">PV Notepad</h1>
+            <h1 class="title-top">PV Notepad</h1>
             <button class="cleaning-btn" onclick="showClearStorageConfirmation()"></button>
+
             <div class="theme-switcher">
                 <button id="theme-toggle">
                   <span class="material-icons" id="icon"></span>
                 </button>
             </div>
+            
         </div>
         <div id="tabContainer" class="tab-container">
             <div class="add-tab">
@@ -55,18 +57,27 @@
 
     <div id="lightbox" class="lightbox">
         <div class="lightbox-content">
+
             <div class="lightbox-header">
-                <textarea class="lightbox-notepad-title"></textarea>
-                <input type="checkbox" id="lightbox-symbol-toggle1" class="symbol-toggle micToggle" />
-                <label for="lightbox-symbol-toggle1" class="symbol-toggleee" style="--symbol: 'mic'; --symbol-checked: 'mic_off';"></label>
+                    <input type="text" class="lightbox-notepad-title" value="${panelData ? panelData.title : 'My Notepad'}" />
+                    <div class="lightbox-symbol-container">
+                        <div class="lightbox-symbol-container"></div>
+
+                        <input type="checkbox" id="lightbox-symbol-toggle1" class="symbol-toggle micToggle" />
+                        <label for="lightbox-symbol-toggle1" class="symbol-toggleee" style="--symbol: 'mic'; --symbol-checked: 'mic_off';"></label>
     
-                <input type="checkbox" id="lightbox-symbol-toggle2" class="symbol-toggle voiceToggle" />
-                <label for="lightbox-symbol-toggle2" class="symbol-toggleee" style="--symbol: 'play_arrow'; --symbol-checked: 'pause';"></label>
+                        <input type="checkbox" id="lightbox-symbol-toggle2" class="symbol-toggle voiceToggle" />
+                        <label for="lightbox-symbol-toggle2" class="symbol-toggleee" style="--symbol: 'play_arrow'; --symbol-checked: 'pause';"></label>
     
-                <button class="copy-btn" onclick="copyLightboxText()"></button>
-                <button class="reset-btn" onclick="closeLightbox()"></button>
+                        <button class="copy-btn" onclick="copyLightboxText()"></button>
+                        <button class="reset-btn" onclick="closeLightbox()"></button>
+                    </div>
+
+                </div>
+                <textarea id="lightbox-textarea" class="lightbox-textarea"></textarea>
             </div>
-            <textarea id="lightbox-textarea" class="lightbox-textarea"></textarea>
+            
+
         </div>
     </div>
     
